@@ -1,3 +1,4 @@
+/* CarbonSequestrationForm.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
@@ -7,18 +8,18 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.app-container {
+.carbon-app {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('https://images.unsplash.com/photo-1476231682828-37e571bc172f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+  background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   padding: 20px;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .background-overlay {
@@ -27,93 +28,130 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
   z-index: 0;
 }
 
-/* Info Bubbles */
-.info-bubbles-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.info-bubble {
-  position: absolute;
-  background-color: #e3f2fd;
-  border-radius: 50px;
-  padding: 15px 20px;
-  max-width: 220px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: #2c3e50;
-  backdrop-filter: blur(2px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.bubble-emoji {
-  font-size: 1.4rem;
-  margin-right: 8px;
-  vertical-align: middle;
-}
-
-@keyframes floatUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Form Container */
-.form-container {
+.carbon-container {
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: 15px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
   padding: 40px;
   width: 100%;
-  max-width: 600px;
-  z-index: 2;
+  max-width: 900px;
+  z-index: 1;
   transform: translateY(0);
   transition: all 0.3s ease;
   animation: fadeInUp 0.8s ease-out;
 }
 
-.form-container:hover {
+.carbon-container:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
 
-.heading {
+.carbon-header {
   text-align: center;
   margin-bottom: 30px;
 }
 
-.heading h1 {
+.carbon-header h1 {
   color: #2c3e50;
   font-size: 2.2rem;
   margin-bottom: 10px;
   font-weight: 600;
 }
 
-.heading p {
+.carbon-header p {
   color: #7f8c8d;
   font-size: 1rem;
 }
 
-/* Form Elements */
-.user-input {
-  margin-bottom: 25px;
+.carbon-content {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.carbon-facts {
+  flex: 1;
+  min-width: 300px;
+}
+
+.facts-carousel {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4f0f5 100%);
+}
+
+.fact-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.5s ease;
+  background: transparent;
+}
+
+.fact-card.active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 2;
+}
+
+.fact-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #27ae60;
+}
+
+.fact-card h3 {
+  color: #27ae60;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.fact-card p {
+  color: #34495e;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #bdc3c7;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0;
+}
+
+.dot.active {
+  background-color: #27ae60;
+  transform: scale(1.2);
+}
+
+.carbon-form {
+  flex: 1;
+  min-width: 300px;
 }
 
 .form-group {
@@ -145,6 +183,20 @@
   background-color: white;
 }
 
+.species-info {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f5fbf7;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  border-left: 3px solid #27ae60;
+}
+
+.species-info p {
+  margin: 5px 0;
+  color: #34495e;
+}
+
 .submit-btn {
   width: 100%;
   padding: 14px;
@@ -165,12 +217,14 @@
 .submit-btn:hover {
   background-color: #219653;
   transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
 }
 
 .submit-btn:disabled {
   background-color: #95a5a6;
   cursor: not-allowed;
   transform: none;
+  box-shadow: none;
 }
 
 .spinner {
@@ -182,17 +236,16 @@
   animation: spin 1s ease-in-out infinite;
 }
 
-/* Results Section */
-.model-output {
+.carbon-result {
   opacity: 0;
   max-height: 0;
   overflow: hidden;
   transition: all 0.5s ease;
 }
 
-.model-output.show {
+.carbon-result.show {
   opacity: 1;
-  max-height: 500px;
+  max-height: 1000px;
 }
 
 .error-message {
@@ -264,7 +317,7 @@
   flex-direction: column;
 }
 
-.probability-bar {
+.comparison-bar {
   width: 100%;
   height: 8px;
   background-color: #ecf0f1;
@@ -273,38 +326,41 @@
   overflow: hidden;
 }
 
-.probability-fill {
+.comparison-fill {
   height: 100%;
   background: linear-gradient(90deg, #27ae60, #2ecc71);
   border-radius: 4px;
   transition: width 1s ease-out;
 }
 
-.species-tips {
-  margin-top: 20px;
+.growth-tips {
+  margin-top: 25px;
   padding: 15px;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 10px;
+  background-color: #f5fbf7;
+  border-radius: 8px;
   border-left: 4px solid #27ae60;
 }
 
-.species-tips h4 {
+.growth-tips h4 {
   color: #27ae60;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
+  font-size: 1.1rem;
 }
 
-.species-tips ul {
+.growth-tips ul {
   padding-left: 20px;
 }
 
-.species-tips li {
+.growth-tips li {
   margin-bottom: 8px;
   position: relative;
+  color: #34495e;
+  line-height: 1.5;
 }
 
-.species-tips li::before {
+.growth-tips li::before {
   content: "•";
   color: #27ae60;
   font-weight: bold;
@@ -319,9 +375,9 @@
   text-align: center;
   padding-top: 15px;
   border-top: 1px solid #eee;
+  margin-top: 15px;
 }
 
-/* Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -360,25 +416,125 @@
   }
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
-  .form-container {
-    padding: 25px;
+  .carbon-content {
+    flex-direction: column;
   }
   
-  .heading h1 {
+  .carbon-facts, .carbon-form {
+    min-width: 100%;
+  }
+  
+  .carbon-header h1 {
     font-size: 1.8rem;
   }
 
-  .info-bubble {
-    display: none;
+  .carbon-container {
+    padding: 25px;
   }
-  
-  .species-tips {
+
+  .facts-carousel {
+    height: 180px;
+  }
+
+  .fact-card {
+    padding: 15px;
+  }
+
+  .fact-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .fact-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .fact-card p {
     font-size: 0.85rem;
   }
-  
+
   .metric-value {
     font-size: 1.2rem;
   }
+
+  .growth-tips h4 {
+    font-size: 1rem;
+  }
+
+  .growth-tips li {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carbon-container {
+    padding: 20px;
+  }
+
+  .carbon-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .carbon-header p {
+    font-size: 0.9rem;
+  }
+
+  .form-input {
+    padding: 10px 12px;
+  }
+
+  .submit-btn {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  .result-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .metric-label {
+    font-size: 0.85rem;
+  }
+
+  .metric-value {
+    font-size: 1.1rem;
+  }
+}
+
+
+.co2-facts {
+  margin-top: 25px;
+  padding: 15px;
+  background-color: #f0f9f5;
+  border-radius: 8px;
+  border-left: 4px solid #27ae60;
+}
+
+.co2-facts h4 {
+  color: #27ae60;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.co2-fact-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+.co2-fact-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.co2-fact-label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-right: 10px;
 }

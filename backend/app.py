@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS  # Added CORS import
-from models.land_suitability_model import predict_suitability as predict_land_suitability
+# from models.land_suitability_model import predict_suitability as predict_land_suitability
+from models.land_suitability_model import enhanced_automated_prediction
 from models.tree_species_survival_model import predict_species
 from models.deforestation_risk_model import predict_forest_loss
 from models.carbon_sequestration import predict_co2_absorption
@@ -14,7 +15,8 @@ def land_suitability():
     try:
         data = request.json
         print("/////// Received Data:", data)  # Log incoming data
-        result = predict_land_suitability(data)
+        # result = predict_land_suitability(data)
+        result = enhanced_automated_prediction(data)
         print("/////// Prediction Result:", result)  # Log prediction result
         return jsonify(result)
     except Exception as e:
