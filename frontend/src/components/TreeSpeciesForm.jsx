@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './TreeSpeciesForm.css';
 
 const TreeSpeciesForm = () => {
   const [data, setData] = useState({ species: "", region: "", growth_rate: "" });
@@ -48,39 +49,43 @@ const TreeSpeciesForm = () => {
   };
 
   return (
-    <div>
-      <h1>Tree Species Survival Prediction</h1>
-      <form onSubmit={handleSubmit}>
-        <select name="species" onChange={handleChange} value={data.species}>
-          <option value="">Select Species</option>
-          <option value="Teak">Teak</option>
-          <option value="Oak">Oak</option>
-          <option value="Mahogany">Mahogany</option>
-          <option value="Bamboo">Bamboo</option>
-        </select>
-        <select name="region" onChange={handleChange} value={data.region}>
-          <option value="">Select Region</option>
-          <option value="Mountainous">Mountainous</option>
-          <option value="Tropical">Tropical</option>
-          <option value="Arid">Arid</option>
-        </select>
-        <input
-          type="number"
-          name="growth_rate"
-          onChange={handleChange}
-          placeholder="Growth Rate"
-          value={data.growth_rate}
-          step="0.1"
-        />
-        <button type="submit">Predict</button>
-      </form>
-      {error && <p style={{ color: "red" }}>Error: {error}</p>}
-      {result && (
-        <div>
-          <p>CO2 Absorption: {result.co2_absorption}</p>
-          <p>Survival Probability: {result.survival_probability}</p>
-        </div>
-      )}
+    <div className="main-div">
+      <div className="heading"><h1>Tree Species Survival Prediction</h1></div>
+      <div className="user-input">
+        <form onSubmit={handleSubmit}>
+          <select name="species" onChange={handleChange} value={data.species}>
+            <option value="">Select Species</option>
+            <option value="Teak">Teak</option>
+            <option value="Oak">Oak</option>
+            <option value="Mahogany">Mahogany</option>
+            <option value="Bamboo">Bamboo</option>
+          </select>
+          <select name="region" onChange={handleChange} value={data.region}>
+            <option value="">Select Region</option>
+            <option value="Mountainous">Mountainous</option>
+            <option value="Tropical">Tropical</option>
+            <option value="Arid">Arid</option>
+          </select>
+          <input
+            type="number"
+            name="growth_rate"
+            onChange={handleChange}
+            placeholder="Growth Rate"
+            value={data.growth_rate}
+            step="0.1"
+          />
+          <button type="submit">Predict</button>
+        </form>
+      </div>
+      <div className="model-output">
+        {error && <p style={{ color: "red" }}>Error: {error}</p>}
+        {result && (
+          <div>
+            <p>CO2 Absorption: {result.co2_absorption.toFixed(2)}</p>
+            <p>Survival Probability: {result.survival_probability.toFixed(3)}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

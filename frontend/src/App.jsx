@@ -1,27 +1,25 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LandingPage from "./components/LandingPage";
 import LandSuitabilityForm from "./components/LandSuitabilityForm";
 import TreeSpeciesForm from "./components/TreeSpeciesForm";
 import DeforestationRiskForm from "./components/DeforestationRiskForm";
 import CarbonSequestrationForm from "./components/Carbon_Sequestration";
+import AgroforestryPredictionForm from "./components/AgroforestryPredictionForm";
+import './App.css';
 
 const App = () => {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li><Link to="/land-suitability">Land Suitability</Link></li>
-            <li><Link to="/tree-species">Tree Species Survival</Link></li>
-            <li><Link to="/deforestation-risk">Deforestation Risk</Link></li>
-            <li><Link to="/carbon-sequestration">Carbon Sequestration</Link></li>
-          </ul>
-        </nav>
+      <div className="app-main-div">
         <Routes>
+          {/* Default route to render LandingPage */}
+          <Route path="/" element={<LandingPage />} />
           <Route path="/land-suitability" element={<LandSuitabilityForm />} />
           <Route path="/tree-species" element={<TreeSpeciesForm />} />
           <Route path="/deforestation-risk" element={<DeforestationRiskForm />} />
           <Route path="/carbon-sequestration" element={<CarbonSequestrationForm />} />
+          <Route path="/agroforestry" element={<AgroforestryPredictionForm />} />
         </Routes>
       </div>
     </Router>

@@ -4,6 +4,7 @@ from models.land_suitability_model import predict_suitability as predict_land_su
 from models.tree_species_survival_model import predict_species
 from models.deforestation_risk_model import predict_forest_loss
 from models.carbon_sequestration import predict_co2_absorption
+from models.agroforestry_model import predict_agroforestry
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -50,6 +51,18 @@ def carbon_sequestration():
         data = request.json
         print("/////// Received Data:", data)  # Log incoming data
         result = predict_co2_absorption(data)
+        print("/////// Prediction Result:", result)  # Log prediction result
+        return jsonify(result)
+    except Exception as e:
+        print("/////// Error:", str(e))  # Log error details
+        return jsonify({"error": str(e)}), 500
+    
+@app.route('/predict/agroforestry', methods=['POST'])
+def agroforestry():
+    try:
+        data = request.json
+        print("/////// Received Data:", data)  # Log incoming data
+        result = predict_agroforestry(data)
         print("/////// Prediction Result:", result)  # Log prediction result
         return jsonify(result)
     except Exception as e:
