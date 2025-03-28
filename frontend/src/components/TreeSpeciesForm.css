@@ -59,7 +59,7 @@
 }
 
 .bubble-emoji {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   margin-right: 8px;
   vertical-align: middle;
 }
@@ -77,63 +77,57 @@
 
 /* Form Container */
 .form-container {
-  background-color: rgba(255, 255, 255, 0.95);
-  border-radius: 15px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.97);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 30px;
   width: 100%;
-  max-width: 600px;
+  max-width: 650px;
   z-index: 2;
-  transform: translateY(0);
-  transition: all 0.3s ease;
-  animation: fadeInUp 0.8s ease-out;
-}
-
-.form-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  margin: 20px;
 }
 
 .heading {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .heading h1 {
   color: #2c3e50;
-  font-size: 2.2rem;
-  margin-bottom: 10px;
+  font-size: 2rem;
+  margin-bottom: 8px;
   font-weight: 600;
 }
 
 .heading p {
   color: #7f8c8d;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 /* Form Elements */
 .user-input {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   color: #2c3e50;
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .form-input {
   width: 100%;
   padding: 12px 15px;
-  border: 1px solid #ddd;
+  border: 1px solid #e0e0e0;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   transition: all 0.3s;
   background-color: #f9f9f9;
 }
@@ -143,6 +137,12 @@
   border-color: #27ae60;
   box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
   background-color: white;
+}
+
+.info-text {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  margin-top: 5px;
 }
 
 .submit-btn {
@@ -165,12 +165,7 @@
 .submit-btn:hover {
   background-color: #219653;
   transform: translateY(-2px);
-}
-
-.submit-btn:disabled {
-  background-color: #95a5a6;
-  cursor: not-allowed;
-  transform: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .spinner {
@@ -192,7 +187,7 @@
 
 .model-output.show {
   opacity: 1;
-  max-height: 500px;
+  max-height: 1000px;
 }
 
 .error-message {
@@ -203,7 +198,6 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  animation: shake 0.5s;
 }
 
 .error-message svg {
@@ -214,35 +208,109 @@
 }
 
 .result-card {
-  background: linear-gradient(135deg, #f5f7fa 0%, #e4f0f5 100%);
+  background: white;
   border-radius: 12px;
-  padding: 25px;
+  padding: 20px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   border: 1px solid #e0e0e0;
-  animation: fadeIn 0.6s ease-out;
+  margin-top: 20px;
 }
 
 .result-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   color: #27ae60;
-}
-
-.result-header svg {
-  width: 28px;
-  height: 28px;
-  margin-right: 10px;
+  text-align: center;
 }
 
 .result-header h3 {
   font-size: 1.3rem;
   font-weight: 600;
   margin: 0;
+  width: 100%;
+}
+
+.result-header svg {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+
+/* Tabs */
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 15px;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  position: relative;
+  margin-right: 5px;
+  transition: all 0.3s;
+}
+
+.tab-button:hover {
+  color: #2c3e50;
+}
+
+.tab-button.active {
+  color: #27ae60;
+  font-weight: 500;
+}
+
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #27ae60;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Details Tab */
+.species-highlight {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.species-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.species-region {
+  font-size: 0.85rem;
+  background: #e8f5e9;
+  color: #27ae60;
+  padding: 5px 10px;
+  border-radius: 20px;
 }
 
 .result-metrics {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .metric {
@@ -252,16 +320,14 @@
 .metric-label {
   display: block;
   color: #7f8c8d;
-  font-size: 0.9rem;
-  margin-bottom: 5px;
+  font-size: 0.85rem;
+  margin-bottom: 3px;
 }
 
 .metric-value {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: #2c3e50;
-  display: flex;
-  flex-direction: column;
 }
 
 .probability-bar {
@@ -277,22 +343,26 @@
   height: 100%;
   background: linear-gradient(90deg, #27ae60, #2ecc71);
   border-radius: 4px;
-  transition: width 1s ease-out;
 }
 
 .species-tips {
   margin-top: 20px;
   padding: 15px;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 10px;
-  border-left: 4px solid #27ae60;
+  background: #f8f9fa;
+  border-radius: 8px;
 }
 
 .species-tips h4 {
   color: #27ae60;
   margin-bottom: 10px;
+  font-size: 1rem;
   display: flex;
   align-items: center;
+}
+
+.species-tips h4::before {
+  content: "🌿";
+  margin-right: 8px;
 }
 
 .species-tips ul {
@@ -301,6 +371,7 @@
 
 .species-tips li {
   margin-bottom: 8px;
+  font-size: 0.9rem;
   position: relative;
 }
 
@@ -308,77 +379,250 @@
   content: "•";
   color: #27ae60;
   font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
+  position: absolute;
+  left: -15px;
 }
 
-.result-footer {
+/* Environment Tab */
+.environment-section {
+  padding: 5px;
+}
+
+.environment-section h4 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.environment-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.environment-card {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.env-icon {
+  font-size: 1.5rem;
+  margin-right: 12px;
+  color: #27ae60;
+}
+
+.env-label {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  margin-bottom: 3px;
+}
+
+.env-value {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.location-notes {
+  margin: 20px 0;
+  padding: 15px;
+  background: #e3f2fd;
+  border-radius: 8px;
+}
+
+.location-notes h5 {
+  color: #1976d2;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.location-notes ul {
+  padding-left: 20px;
+}
+
+.location-notes li {
+  margin-bottom: 5px;
+  font-size: 0.85rem;
+  color: #2c3e50;
+}
+
+.ecological-benefits {
+  margin-top: 20px;
+  padding: 15px;
+  background: #e8f5e9;
+  border-radius: 8px;
+}
+
+.ecological-benefits h4 {
+  color: #27ae60;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.ecological-benefits h4::before {
+  content: "🌍";
+  margin-right: 8px;
+}
+
+.ecological-benefits ul {
+  padding-left: 20px;
+}
+
+.ecological-benefits li {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.ecological-benefits li::before {
+  content: "•";
+  color: #27ae60;
+  font-weight: bold;
+  position: absolute;
+  left: -15px;
+}
+
+/* Companion Plants Tab */
+.companion-plants-section {
+  padding: 5px;
+}
+
+.companion-plants-section h4 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.companion-subtitle {
   color: #7f8c8d;
   font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.companion-plants-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.companion-plant-card {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.plant-check {
+  color: #27ae60;
+  font-weight: bold;
+  margin-right: 12px;
+  font-size: 1.1rem;
+}
+
+.plant-name {
+  font-size: 0.95rem;
+  color: #2c3e50;
+}
+
+.companion-benefits {
+  margin-top: 20px;
+  padding: 15px;
+  background: #fff8e1;
+  border-radius: 8px;
+}
+
+.benefit-tip {
+  display: flex;
+  align-items: flex-start;
+}
+
+.tip-icon {
+  font-size: 1.2rem;
+  margin-right: 10px;
+  color: #ffa000;
+}
+
+.benefit-tip p {
+  font-size: 0.9rem;
+  color: #2c3e50;
+  line-height: 1.5;
+}
+
+/* Footer */
+.result-footer {
+  color: #7f8c8d;
+  font-size: 0.8rem;
   text-align: center;
   padding-top: 15px;
+  margin-top: 15px;
   border-top: 1px solid #eee;
 }
 
 /* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 @keyframes spin {
   to {
     transform: rotate(360deg);
   }
 }
 
-@keyframes shake {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  20%, 60% {
-    transform: translateX(-5px);
-  }
-  40%, 80% {
-    transform: translateX(5px);
-  }
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
   .form-container {
-    padding: 25px;
+    padding: 20px;
+    margin: 10px;
   }
   
   .heading h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   .info-bubble {
     display: none;
   }
   
-  .species-tips {
-    font-size: 0.85rem;
+  .environment-grid,
+  .companion-plants-grid {
+    grid-template-columns: 1fr;
   }
   
   .metric-value {
     font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 15px;
+  }
+  
+  .heading h1 {
+    font-size: 1.4rem;
+  }
+  
+  .heading p {
+    font-size: 0.85rem;
+  }
+  
+  .tab-button {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .species-name {
+    font-size: 1.2rem;
+  }
+  
+  .species-region {
+    font-size: 0.75rem;
   }
 }

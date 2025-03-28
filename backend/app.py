@@ -6,10 +6,23 @@ from models.tree_species_survival_model import predict_species
 from models.deforestation_risk_model import predict_forest_loss
 from models.carbon_sequestration import predict_co2_absorption
 from models.agroforestry_model import predict_agroforestry
+from models.deforestation_risk_assessment import enhanced_deforestation_prediction
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
+@app.route('/predict/deforestation-risk-assessment', methods=['POST'])
+def deforestation_risk_assess():
+    try:
+        data = request.json
+        print("/////// Received Data:", data)  # Log incoming data
+        result = enhanced_deforestation_prediction(data)
+        print("/////// Prediction Result:", result)  # Log prediction result
+        return jsonify(result)
+    except Exception as e:
+        print("/////// Error:", str(e))  # Log error details
+        return jsonify({"error": str(e)}), 500
+    
 @app.route('/predict/land-suitability', methods=['POST'])
 def land_suitability():
     try:

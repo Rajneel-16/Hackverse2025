@@ -43,6 +43,12 @@ const LandingPage = () => {
       description: "Design sustainable agricultural systems integrated with trees",
       icon: "🌾",
       path: "/agroforestry"
+    },
+    {
+      title: "Satellite Monitoring",
+      description: "Track forest changes and land use with real-time satellite imagery",
+      icon: "🛰️",
+      path: "/deforestation-risk-assessment"
     }
   ];
 

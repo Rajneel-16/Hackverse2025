@@ -1,0 +1,448 @@
+.agroforestry-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 2rem;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .agroforestry-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    opacity: 0.7;
+  }
+  
+  .agroforestry-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(46, 125, 50, 0.9) 0%, rgba(56, 142, 60, 0.8) 100%);
+  }
+  
+  .agroforestry-form-container {
+    background-color: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    max-width: 1000px;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  .agroforestry-title {
+    font-size: 2.5rem;
+    color: #2e7d32;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  
+  .agroforestry-title span {
+    font-weight: 800;
+    position: relative;
+  }
+  
+  .agroforestry-title span::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: rgba(46, 125, 50, 0.3);
+    z-index: -1;
+  }
+  
+  .agroforestry-subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  
+  .automation-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+  }
+  
+  .auto-detect-btn, 
+  .auto-fill-btn,
+  .sample-button {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+  }
+  
+  .auto-detect-btn {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  .auto-detect-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  .auto-fill-btn {
+    background-color: #2ecc71;
+    color: white;
+  }
+  
+  .auto-fill-btn:hover {
+    background-color: #27ae60;
+  }
+  
+  .sample-button {
+    background-color: #f1c40f;
+    color: #333;
+  }
+  
+  .sample-button:hover {
+    background-color: #f39c12;
+  }
+  
+  .tabs {
+    display: flex;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .tab-button {
+    padding: 0.8rem 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    color: #777;
+    position: relative;
+  }
+  
+  .tab-button.active {
+    color: #2e7d32;
+    font-weight: 600;
+  }
+  
+  .tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #2e7d32;
+  }
+  
+  .tab-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .agroforestry-form {
+    margin-top: 1rem;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #444;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: #2e7d32;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+  }
+  
+  .input-decoration {
+    margin-top: 0.5rem;
+    height: 4px;
+    background-color: #f0f0f0;
+    border-radius: 2px;
+    position: relative;
+  }
+  
+  .ph-indicator {
+    height: 100%;
+    width: 100%;
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .moisture-bar {
+    height: 100%;
+    background: linear-gradient(to right, #ff6b6b, #feca57, #1dd1a1);
+    border-radius: 2px;
+  }
+  
+  .growth-meter {
+    height: 100%;
+    background: linear-gradient(to right, #feca57, #2ecc71);
+    border-radius: 2px;
+  }
+  
+  .co2-icon, .shade-icon, .water-drop, .yield-icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+  
+  .submit-button {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .submit-button:hover {
+    background-color: #1b5e20;
+  }
+  
+  .spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  .error-message {
+    color: #e74c3c;
+    background-color: #fadbd8;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+  
+  .results-container {
+    margin-top: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    padding: 2rem;
+  }
+  
+  .result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .result-header h2 {
+    color: #2e7d32;
+    margin: 0;
+  }
+  
+  .compatibility-score {
+    background-color: #2e7d32;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+  
+  .result-cards {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .result-card {
+    flex: 1;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .result-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .tree-card {
+    background-color: #e8f5e9;
+    border: 1px solid #a5d6a7;
+  }
+  
+  .crop-card {
+    background-color: #f1f8e9;
+    border: 1px solid #c5e1a5;
+  }
+  
+  .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .recommendation {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2e7d32;
+    margin: 0.5rem 0;
+  }
+  
+  .benefits-section {
+    margin-bottom: 2rem;
+  }
+  
+  .benefits-section h3 {
+    color: #444;
+    margin-bottom: 1rem;
+  }
+  
+  .benefits-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .benefits-section li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 6px;
+    background-color: rgba(46, 125, 50, 0.05);
+  }
+  
+  .check-icon {
+    color: #2e7d32;
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+  
+  .other-options {
+    margin-top: 2rem;
+  }
+  
+  .other-options h3 {
+    color: #444;
+    margin-bottom: 1rem;
+  }
+  
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .option-card {
+    background-color: white;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .option-card h4 {
+    color: #2e7d32;
+    margin: 0 0 0.5rem;
+  }
+  
+  .option-card p {
+    color: #666;
+    margin: 0 0 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .option-score {
+    background-color: #f1f8e9;
+    color: #2e7d32;
+    padding: 0.3rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  
+  .calculation-method {
+    margin-top: 2rem;
+    text-align: center;
+    color: #777;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 768px) {
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .result-cards {
+      flex-direction: column;
+    }
+    
+    .agroforestry-form-container {
+      padding: 2rem 1.5rem;
+    }
+    
+    .agroforestry-title {
+      font-size: 2rem;
+    }
+  
+    .automation-options {
+      flex-direction: column;
+    }
+  
+    .options-grid {
+      grid-template-columns: 1fr;
+    }
+  }

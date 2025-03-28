@@ -6,6 +6,7 @@ import TreeSpeciesForm from "./components/TreeSpeciesForm";
 import DeforestationRiskForm from "./components/DeforestationRiskForm";
 import CarbonSequestrationForm from "./components/Carbon_Sequestration";
 import AgroforestryPredictionForm from "./components/AgroforestryPredictionForm";
+import DeforestationRiskAssessment from "./components/DeforestationRiskAssessment";
 import './App.css';
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/deforestation-risk" element={<DeforestationRiskForm />} />
           <Route path="/carbon-sequestration" element={<CarbonSequestrationForm />} />
           <Route path="/agroforestry" element={<AgroforestryPredictionForm />} />
+          <Route path="/deforestation-risk-assessment" element={<DeforestationRiskAssessment />} />
         </Routes>
       </div>
     </Router>
