@@ -117,7 +117,7 @@ const AgroforestryPredictionForm = () => {
         "Punjab, India",
         "Default"
       ];
-      setLocation(mockLocations[Math.floor(Math.random() * mockLocations.length)]);
+      setLocation("Mumbai, India");
       setIsSubmitting(false);
     }, 1500);
   };

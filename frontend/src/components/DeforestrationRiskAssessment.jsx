@@ -15,7 +15,7 @@ const DeforestationRiskAssessment = () => {
     setResult(null);
 
     try {
-      const response = await axios.post("http://localhost:5000/deforestation-risk", {
+      const response = await axios.post(`${import.meta.env.VITE_API_BACKEND_URL}/deforestation-risk`, {
         latitude: parseFloat(lat),
         longitude: parseFloat(lon),
       });

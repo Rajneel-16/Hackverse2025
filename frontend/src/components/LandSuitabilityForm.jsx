@@ -26,7 +26,7 @@ const LandSuitabilityForm = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/predict/land-suitability",
+        `${import.meta.env.VITE_API_BACKEND_URL}/predict/land-suitability`,
         coordinates
       );
 
@@ -143,8 +143,8 @@ const LandSuitabilityForm = () => {
                 <div className="result-header">
                   <h3>Suitability Analysis</h3>
                   <div className="suitability-score" 
-                       style={{ backgroundColor: getSuitabilityLevel(result.suitability).color }}>
-                    {result.suitability}%
+                       style={{ backgroundColor: getSuitabilityLevel(result.suitability).color}}>
+                    {(result.suitability*100).toFixed(2)}%
                   </div>
                 </div>
                 

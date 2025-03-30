@@ -34,7 +34,7 @@ const DeforestationRiskAssessment = () => {
     simulateSatelliteScan();
 
     try {
-      const response = await axios.post("http://localhost:5000/predict/deforestation-risk-assessment", {
+      const response = await axios.post(`${import.meta.env.VITE_API_BACKEND_URL}/predict/deforestation-risk-assessment`, {
         latitude: coordinates.lat,
         longitude: coordinates.lon,
       });
